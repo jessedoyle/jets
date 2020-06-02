@@ -14,7 +14,7 @@ describe Jets::Middleware do
   end
 
   context "middleware" do
-    it "call" do
+    it "call", dynamodb: true do
       status, headers, body = MiddlewareTestClass.new.call(env)
       expect(status).to eq "200"
     end

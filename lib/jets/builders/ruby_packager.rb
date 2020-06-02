@@ -99,7 +99,7 @@ module Jets::Builders
     # The lambda server only has ruby 2.5.0 installed.
     def reconfigure_ruby_version
       ruby_version = "#{@full_app_root}/.ruby-version"
-      IO.write(ruby_version, Jets::RUBY_VERSION)
+      IO.write(ruby_version, RUBY_VERSION)
     end
 
     # When using submodules, bundler leaves old submodules behind. Over time this inflates
@@ -128,7 +128,7 @@ module Jets::Builders
       end
 
       # IE: /tmp/jets/demo/cache/vendor/gems/ruby/2.5.0/bundler/gems/webpacker-a8c46614c675
-      Dir.glob("#{cache_area}/vendor/gems/ruby/2.5.0/bundler/gems/*").each do |path|
+      Dir.glob("#{cache_area}/vendor/gems/ruby/#{Jets::Gems.ruby_folder}/bundler/gems/*").each do |path|
         sha = path.split('-').last[0..6] # only first 7 chars of the git sha
         unless git_shas.include?(sha)
           # puts "Removing old submoduled gem: #{path}" # uncomment to see and debug

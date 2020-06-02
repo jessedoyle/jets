@@ -76,7 +76,7 @@ The methods `ruby_function`, `python_function`, and `node_function` all delegate
 class Custom < Jets::Stack
   function(:kevin,
     handler: "kevin.lambda_handler",
-    runtime: "ruby2.5"
+    runtime: "ruby2.7"
   )
 end
 ```
@@ -91,7 +91,7 @@ class Custom < Jets::Stack
       s3_key: code_s3_key
     },
     handler: "kevin.lambda_handler",
-    runtime: "ruby2.5"
+    runtime: "ruby2.7"
   )
 end
 ```

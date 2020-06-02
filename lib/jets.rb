@@ -25,7 +25,11 @@ Jets::Autoloaders.log! if ENV["JETS_AUTOLOAD_LOG"]
 Jets::Autoloaders.once.setup
 
 module Jets
-  RUBY_VERSION = "2.5.3"
+  RUBY_VERSION = ::RUBY_VERSION
+  SUPPORTED_RUNTIMES = [
+    { key: 'ruby2.5', constraint: '~> 2.5.0' },
+    { key: 'ruby2.7', constraint: '~> 2.7.0' }
+  ].freeze
   MAX_FUNCTION_NAME_SIZE = 64
 
   class Error < StandardError; end

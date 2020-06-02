@@ -11,7 +11,7 @@ describe Jets::Processors::MainProcessor do
 
   context "controller create" do
     let(:handler) { 'handlers/controllers/posts_controller.create' }
-    it "returns data" do
+    it "returns data", dynamodb: true do
       data = main.run
       # pp data
       expect(data["statusCode"]).to eq "200"

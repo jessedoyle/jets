@@ -27,7 +27,7 @@ describe Jets::Middleware::Configurator do
       env
     end
 
-    it "call" do
+    it "call", dynamodb: true do
       default_stack = Jets::Middleware::DefaultStack.new(Jets.config, Jets.application).build_stack
       config_middleware = Jets::Middleware::Configurator.new
       config_middleware.use Rack::TempfileReaper

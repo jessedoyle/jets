@@ -5,7 +5,7 @@ describe Jets::Controller::Rack::Adapter do
   context "general" do
     let(:event) { json_file("spec/fixtures/dumps/api_gateway/posts/index.json") }
     let(:meth)  { :index }
-    it "convert" do
+    it "convert", dynamodb: true do
       result = adapter.process
       env = adapter.env
       expect(env).to be_a(Hash)

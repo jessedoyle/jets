@@ -1,6 +1,11 @@
 module Jets::Core
   extend Memoist
 
+  def ruby_runtime
+    Jets::Support::RuntimeVersion.new.runtime
+  end
+  memoize :ruby_runtime
+
   def application
     Jets::Application.instance
   end

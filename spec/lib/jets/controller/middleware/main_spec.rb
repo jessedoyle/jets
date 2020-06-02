@@ -12,7 +12,7 @@ describe Jets::Controller::Middleware::Main do
   context "posts index" do
     let(:event) { json_file("spec/fixtures/dumps/api_gateway/posts/index.json") }
 
-    it "call" do
+    it "call", dynamodb: true do
       triplet = Jets::Controller::Middleware::Main.call(rack_env)
       status, headers, body = triplet
       expect(status).to eq "200"

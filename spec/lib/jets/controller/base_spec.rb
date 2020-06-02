@@ -139,7 +139,7 @@ describe Jets::Controller::Base do
     let(:meth) { "index" }
     let(:event) { json_file("spec/fixtures/dumps/api_gateway/posts/index.json") }
 
-    it "new adapter" do
+    it "new adapter", dynamodb: true do
       resp = PostsController.process(event, {}, :index)
       expect(resp['statusCode']).to eq "200"
       expect(resp['headers']).to include('X-Runtime') # confirm going through full middleware stack
